@@ -1,16 +1,21 @@
-# flutteralbum
+# Flutter_Album
 
 Album
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a Flutter application to show photos fetched from a [Public API](https://jsonplaceholder.typicode.com)
 
-A few resources to get you started if this is your first Flutter project:
+## Notes
+- Pagination
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+No pagination API for photos from the https://jsonplaceholder.typicode.com
+That's why the app manipulate '/photos' API response to return the correct page data.
+For example, for the page 2, it will request as below.
+https://jsonplaceholder.typicode.com/photos?albumId=1&page=2&per_page=10
+It still returns all of photos of the album.(50 photos).
+The the app will manipulate the API response to return a corresponding page data. In this case, it will manipulate to return photos of that ID is in range of 11 ~ 20. 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Photo details screen
+
+The app shows the thumbnial image as a placeholder image and then loads image from the photo URL.
