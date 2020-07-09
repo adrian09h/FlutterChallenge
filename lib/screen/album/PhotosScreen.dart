@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutteralbum/screen/album/PhotoDetailScreen.dart';
 import 'package:flutteralbum/view/PhotoCell.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class PhotosScreen extends StatefulWidget {
@@ -53,7 +55,17 @@ class _PhotosScreenState extends State<PhotosScreen> {
         child: ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
-            return PhotoCell();
+            return PhotoCell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        child: PhotoDetailScreen(
+                        )));
+
+              },
+            );
           },
         ),
       ),

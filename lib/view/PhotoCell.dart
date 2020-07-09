@@ -35,13 +35,13 @@ class PhotoCell extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Album id: 123",
+                      "Album ID: 123",
                       style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),
                     ),
                     Text(
-                      "id: 123",
+                      "ID: 123",
                       style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),
