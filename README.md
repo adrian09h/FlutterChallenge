@@ -19,3 +19,5 @@ The the app will manipulate the API response to return a corresponding page data
 - Photo details screen
 
 The app shows the thumbnial image as a placeholder image and then loads image from the photo URL.
+
+- No tests written at the moment.
