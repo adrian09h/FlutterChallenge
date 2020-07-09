@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutteralbum/model/PhotoModel.dart';
 
 class PhotoDetailScreen extends StatefulWidget {
+  final PhotoModel photo;
+  const PhotoDetailScreen(this.photo);
   @override
   _PhotoDetailScreenState createState() => _PhotoDetailScreenState();
 }
@@ -20,10 +23,10 @@ class _PhotoDetailScreenState extends State<PhotoDetailScreen> {
         padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
         children: [
           CachedNetworkImage(
-            imageUrl: "https://via.placeholder.com/600/f66b97",
+            imageUrl: widget.photo.url,
             fit: BoxFit.fitWidth,
             placeholder: (context, url) => CachedNetworkImage(
-              imageUrl: "https://via.placeholder.com/150/d32776",
+              imageUrl: widget.photo.thumbnailUrl,
               fit: BoxFit.fitWidth,
               placeholder: (context, url) => Center(
                 child: CircularProgressIndicator(),
@@ -32,7 +35,7 @@ class _PhotoDetailScreenState extends State<PhotoDetailScreen> {
           ),
           SizedBox(height: 20),
           Text(
-            "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+            widget.photo.title,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
               fontSize: 20
@@ -40,7 +43,7 @@ class _PhotoDetailScreenState extends State<PhotoDetailScreen> {
           ),
           SizedBox(height: 8),
           Text(
-            "Album ID: 123",
+            "Album ID: ${widget.photo.albumId}",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20
@@ -48,7 +51,7 @@ class _PhotoDetailScreenState extends State<PhotoDetailScreen> {
           ),
           SizedBox(height: 8),
           Text(
-            "ID: 123",
+            "ID: ${widget.photo.id}",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20

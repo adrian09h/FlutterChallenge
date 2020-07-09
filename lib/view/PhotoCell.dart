@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutteralbum/model/PhotoModel.dart';
 
 class PhotoCell extends StatelessWidget {
+  final PhotoModel photo;
   final VoidCallback onTap;
-  const PhotoCell({this.onTap});
+  const PhotoCell(this.photo, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class PhotoCell extends StatelessWidget {
                 width: 120,
                 height: 120,
                 child: CachedNetworkImage(
-                  imageUrl: "https://via.placeholder.com/150/d32776",
+                  imageUrl: photo.thumbnailUrl,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => Center(
                     child: CircularProgressIndicator(),
@@ -35,19 +37,19 @@ class PhotoCell extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Album ID: 123",
+                      "Album ID: ${photo.albumId}",
                       style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),
                     ),
                     Text(
-                      "ID: 123",
+                      "ID: ${photo.id}",
                       style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),
                     ),
                     Text(
-                      "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+                      photo.title,
                       style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),

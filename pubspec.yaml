@@ -31,6 +31,8 @@ dependencies:
   pull_to_refresh: ^1.6.0
   page_transition: ^1.1.5
   cached_network_image: ^2.2.0+1
+  progress_dialog: ^1.0.7
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:

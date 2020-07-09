@@ -26,7 +26,7 @@ class AlbumAPI {
   }
   static Future<List<PhotoModel>> getPhotos(int albumId, {int page = 1, int perPage = 10}) async {
     var header = {"Content-Type": "application/json"};
-    String url = "$baseUrl//photos?albumId=$albumId&page=$page&per_page=$perPage";
+    String url = "$baseUrl/photos?albumId=$albumId&page=$page&per_page=$perPage";
     var response = await http.get(url, headers: header);
     if (response != null) {
       var dicRes = jsonDecode(response.body);
